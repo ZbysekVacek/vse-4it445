@@ -30,6 +30,15 @@ app.start = function() {
   });
 };
 
+app.get('/hello', function (req, res) {
+  const data = {
+    hello: "Easy.",
+    time: new Date()
+  };
+  res.header({ 'Content-Type': 'application/json' });
+  res.send(JSON.stringify(data));
+});
+
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname, function(err) {
